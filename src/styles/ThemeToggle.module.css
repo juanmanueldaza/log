@@ -1,0 +1,15 @@
+.toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.toggle:hover {
+    background: var(--bg-secondary);
+}

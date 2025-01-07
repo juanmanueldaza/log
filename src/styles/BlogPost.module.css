@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.post {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.content {
+    color: var(--text-primary);
+    margin: 2rem 0;
+}
+
+.content :global(a) {
+    color: var(--link-color);
+}
+
+.content :global(h1),
+.content :global(h2),
+.content :global(h3),
+.content :global(h4),
+.content :global(h5),
+.content :global(h6) {
+    color: var(--text-primary);
+    margin: 1rem 0;
+}
+
+.content :global(p) {
+    margin: 1rem 0;
+}
+
+.content :global(code) {
+    background: var(--bg-primary);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+}
+
+.content :global(pre) {
+    background: var(--bg-primary);
+    padding: 1rem;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+}

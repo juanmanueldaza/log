@@ -1,0 +1,15 @@
+.counter {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.loading {
+    font-family: monospace;
+    color: var(--text-secondary);
+}
+
+.error {
+    font-family: monospace;
+    color: var(--text-secondary);
+    font-style: italic;
+}

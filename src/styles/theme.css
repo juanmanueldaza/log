@@ -1,0 +1,21 @@
+:root[data-theme="light"] {
+    --bg-primary: #f0f0f0;
+    --bg-secondary: #fff;
+    --text-primary: #000;
+    --text-secondary: #666;
+    --border-color: #000;
+    --link-color: #00f;
+    --link-visited: #800080;
+    --link-active: #f00;
+}
+
+:root[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #fff;
+    --text-secondary: #ccc;
+    --border-color: #666;
+    --link-color: #809fff;
+    --link-visited: #cc99ff;
+    --link-active: #ff6666;
+}

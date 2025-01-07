@@ -1,0 +1,92 @@
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: monospace;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: #f0f0f0;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: "Courier New", Courier, monospace;
+    margin: 1rem 0;
+}
+
+/* Links */
+a {
+    color: #00f;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #800080;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    color: #f00;
+}
+
+/* Layout */
+article {
+    border: 1px solid #000;
+    padding: 1rem;
+    margin: 1rem 0;
+    background: #fff;
+}
+
+/* Blog Post Meta */
+.post-meta {
+    border-bottom: 1px dashed #666;
+    font-size: 0.9em;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Mobile-first responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #000;
+}
+/* Optional: Retro cursor */
+body {
+    cursor: default;
+}
+a {
+    cursor: pointer;
+}
+
+/* Optional: Old-school selection colors */
+::selection {
+    background: #000;
+    color: #fff;
+}
+
+/* Optional: Retro scrollbar (Webkit only) */
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+    border: 1px solid #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border: 1px solid #000;
+}
