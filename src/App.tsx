@@ -4,7 +4,9 @@ import { BlogPost } from "./components/BlogPost";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/REPO_NAME">
+      {" "}
+      {/* Add basename prop */}
       <div className="app">
         <Routes>
           <Route path="/" element={<BlogList />} />
