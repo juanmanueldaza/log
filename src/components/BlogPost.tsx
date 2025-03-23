@@ -1,47 +1,49 @@
-import { useParams, Link } from "react-router-dom";
-import { getAllPosts } from "../utils/markdown";
-import ReactMarkdown from "react-markdown";
-import { ThemeToggle } from "./ThemeToggle";
-import styles from "../styles/BlogPost.module.css";
+import React, { useEffect, useState } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import matter from 'gray-matter';
+import ReactMarkdown from 'react-markdown';
 
-export function BlogPost() {
-  const { slug } = useParams();
-  const posts = getAllPosts();
-  const post = posts.find((p) => p.slug === slug);
+export const BlogPost: React.FC = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+  const [post, setPost] = useState<{ title: string; date: string; content: string } | null>(null);
 
-  if (!post) {
-    return (
-      <main>
-        <h1>404 - Post Not Found</h1>
-        <p>
-          <Link to="/">&lt;&lt; Back to Home</Link>
-        </p>
-      </main>
-    );
-  }
+  useEffect(() => {
+    const loadPost = async () => {
+      try {
+        const context = import.meta.glob('/content/*.md');
+        const filePath = `/content/${slug}.md`;
+        const moduleLoader = context[filePath];
+
+        if (!moduleLoader) {
+          throw new Error('Post not found');
+        }
+
+        const module = (await moduleLoader()) as { default: string };
+        const markdownContent = module.default;
+        const { data, content } = matter(markdownContent);
+        setPost({ title: data.title, date: data.date, content });
+      } catch (err) {
+        console.error('Post not found:', err);
+        navigate('/');
+      }
+    };
+
+    loadPost();
+  }, [slug, navigate]);
+
+  if (!post) return <div>Loading...</div>;
 
   return (
-    <main>
-      <header className={styles.header}>
-        <h1>{post.title}</h1>
-        <ThemeToggle />
-      </header>
-      <article className={styles.post}>
-        <time dateTime={post.date} className="post-meta">
-          Posted on: {post.date}
-        </time>
-        <div className={styles.content}>
-          <ReactMarkdown>{post.content}</ReactMarkdown>
-        </div>
-        <footer>
-          <hr />
-          <nav>
-            <p>
-              <Link to="/">&lt;&lt; Back to Home</Link>
-            </p>
-          </nav>
-        </footer>
+    <div className="container mx-auto px-4 py-8">
+      <Link to="/" className="text-white mb-4 inline-block hover:underline">
+        ← Volver
+      </Link>
+      <article className="prose prose-invert">
+        <h1 className="text-4xl font-bold text-white">{post.title}</h1>
+        <time className="text-gray-400 block mb-8">{post.date}</time>
+        <ReactMarkdown>{post.content}</ReactMarkdown>
       </article>
-    </main>
+    </div>
   );
-}
+};

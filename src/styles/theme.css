@@ -1,7 +1,7 @@
 :root[data-theme="light"] {
-    --bg-primary: #f0f0f0;
+    --bg-primary: #000000;
     --bg-secondary: #fff;
-    --text-primary: #000;
+    --text-primary: #ffffff;
     --text-secondary: #666;
     --border-color: #000;
     --link-color: #00f;

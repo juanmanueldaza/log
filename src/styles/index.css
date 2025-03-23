@@ -5,3 +5,23 @@
 @import "./layout.css";
 @import "./retro.css";
 @import "./blink.css";
+
+/* Estilos para el blog */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.prose {
+  color: white;
+}
+
+/* Asegurarse que los links sean visibles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

@@ -1,5 +1,5 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import { fileURLToPath } from "url";
 import fs from "node:fs";
 import path from "node:path";
@@ -9,7 +9,7 @@ import { format } from "date-fns";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/", // Reemplaza con el nombre del repositorio o "/" si usas un dominio personalizado
+  base: "/", // Aseguramos que el prefijo base sea raíz
   plugins: [
     react(),
     {
@@ -47,4 +47,22 @@ export default defineConfig({
       },
     },
   ],
+  assetsInclude: ['**/*.md'],
+  build: {
+    commonjsOptions: {
+      include: [/p5/, /node_modules/],
+    },
+  },
+  optimizeDeps: {
+    include: ['p5']
+  },
+  resolve: {
+    alias: {
+      'p5': 'p5/lib/p5.min.js'
+    }
+  },
+  server: {
+    port: 5173,
+    host: true
+  }
 });

@@ -1,55 +1,64 @@
-import { Link } from "react-router-dom";
-import { getAllPosts } from "../utils/markdown";
-import { ThemeToggle } from "./ThemeToggle";
-import { VisitorCounter } from "./VisitorCounter";
-import styles from "../styles/BlogList.module.css";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import matter from 'gray-matter';
 
-export function BlogList() {
-  const posts = getAllPosts();
+interface BlogPost {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  content: string;
+}
+
+interface ModuleContent {
+  default: string;
+}
+
+export const BlogList: React.FC = () => {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      const context = import.meta.glob<ModuleContent>('/content/*.md');
+      const posts: BlogPost[] = [];
+
+      for (const path in context) {
+        const moduleLoader = context[path];
+        const module = await moduleLoader();
+        const slug = path.replace('/content/', '').replace('.md', '');
+        const { data, content } = matter(module.default);
+        
+        posts.push({
+          slug,
+          title: data.title || 'Sin título',
+          date: data.date || 'Sin fecha',
+          excerpt: data.excerpt || content.slice(0, 150) + '...',
+          content
+        });
+      }
+
+      // Ordenar posts por fecha, más recientes primero
+      posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      setPosts(posts);
+    };
+
+    loadPosts();
+  }, []);
 
   return (
-    <main role="main">
-      <header className={styles.header}>
-        <div className={styles.headerTop}>
-          <h1>Life Across The Edges</h1>
-          <ThemeToggle />
-        </div>
-        <hr />
-      </header>
-
-      <section>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold mb-8 text-white">Blog</h1>
+      <div className="space-y-6">
         {posts.map((post) => (
-          <article key={post.slug} className={styles.article}>
-            <header>
-              <h2>
-                <Link to={`/post/${post.slug}`}>&gt;&gt; {post.title}</Link>
-              </h2>
-              <time dateTime={post.date} className="post-meta">
-                Posted on: {post.date}
-              </time>
-            </header>
-            <p>{post.description}</p>
-            <footer>
-              <Link to={`/post/${post.slug}`}>[Read More]</Link>
-            </footer>
+          <article key={post.slug} className="bg-black bg-opacity-50 p-6 rounded-lg">
+            <Link to={`/post/${post.slug}`} className="block hover:bg-opacity-75 transition">
+              <h2 className="text-2xl font-bold text-white mb-2">{post.title}</h2>
+              <time className="text-gray-400">{post.date}</time>
+              <p className="text-gray-300 mt-2">{post.excerpt}</p>
+            </Link>
           </article>
         ))}
-      </section>
-
-      <footer>
-        <hr />
-        <p>
-          <small>
-            © {new Date().getFullYear()} | Made with HTML5 | Best viewed with
-            Netscape Navigator
-          </small>
-        </p>
-        <p>
-          <small>
-            Visitors: <VisitorCounter />
-          </small>
-        </p>
-      </footer>
-    </main>
+      </div>
+    </div>
   );
-}
+};

@@ -1,12 +1,7 @@
 body {
-    font-family: monospace;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    cursor: default;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrollbars */
 }
 
 /* src/styles/links.css */
