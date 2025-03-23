@@ -8,7 +8,7 @@ import "./styles/index.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider>
-      <BrowserRouter basename="/"> {/* Asegúrate de que solo haya un BrowserRouter */}
+      <BrowserRouter basename="/<nombre-del-repositorio>/"> {/* Ajusta según el valor de base */}
         <App />
       </BrowserRouter>
     </ThemeProvider>
