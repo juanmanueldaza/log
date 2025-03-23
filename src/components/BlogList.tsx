@@ -11,13 +11,9 @@ export function BlogList() {
     <main role="main">
       <header className={styles.header}>
         <div className={styles.headerTop}>
-          <h1>──── My 90s Blog ────</h1>
+          <h1>Life Across The Edges</h1>
           <ThemeToggle />
         </div>
-        <nav className={styles.nav}>
-          <Link to="/">Home</Link> |<Link to="/about">About</Link> |
-          <Link to="/guestbook">Guestbook</Link>
-        </nav>
         <hr />
       </header>
 
