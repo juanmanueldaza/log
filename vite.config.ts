@@ -9,7 +9,7 @@ import { format } from "date-fns";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/<nombre-del-repositorio>/", // Reemplaza con el nombre del repositorio o "/" si usas un dominio personalizado
+  base: "/", // Reemplaza con el nombre del repositorio o "/" si usas un dominio personalizado
   plugins: [
     react(),
     {
