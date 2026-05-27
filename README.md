@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
+# log.daza.ar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal blog of Juan M Daza. Retro 90s-web aesthetic, markdown-based, deployed via GitHub Pages.
 
-Currently, two official plugins are available:
+## Tech
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18 + TypeScript + Vite
+- react-markdown for post rendering
+- gray-matter for frontmatter parsing
+- GitHub Pages deployment via GitHub Actions
+- Dark/light theme toggle with `localStorage` persistence
+- Visitor counter (CountAPI with 90s fallback)
 
-## Expanding the ESLint configuration
+## Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+├── content/          # Blog posts as .md files with frontmatter
+├── components/       # React components (BlogList, BlogPost, ThemeToggle, etc.)
+├── contexts/         # Theme context
+├── styles/           # CSS modules (each component has its own)
+├── utils/            # Helpers (markdown.ts wraps the virtual:posts module)
+├── scripts/          # Standalone build scripts
+├── App.tsx           # Router
+└── main.tsx          # Entry point
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Writing a Post
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Create a new `.md` file in `src/content/` with frontmatter:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```markdown
+---
+title: My Post Title
+date: 2025-05-27
+description: A short summary for the blog list.
+---
+
+# Content here
+
+Markdown goes here.
 ```
+
+The virtual module plugin in `vite.config.ts` reads all `.md` files in `src/content/` and makes them available as an importable module. No build step for posts — just add a file and rebuild.
+
+## Development
+
+```bash
+npm install
+npm run dev     # Vite dev server at localhost:5173
+npm run build   # TypeScript check + production build
+npm run preview # Preview the production build
+```
+
+## Deployment
+
+Push to `main` → GitHub Actions runs the deploy workflow → site publishes to GitHub Pages with `log.daza.ar` as the custom domain.
+
+## DNS
+
+`log.daza.ar` is configured as a CNAME pointing to `juanmanueldaza.github.io`. Set this in your DNS provider's dashboard.
+
+---
+
+© {new Date().getFullYear()} Juan M Daza | Best viewed with Netscape Navigator
