@@ -9,7 +9,7 @@ import { format } from "date-fns";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/log/", // "/" when using custom domain, "/log/" for GitHub Pages subpath
+  base: "/", // "/" with custom domain, "/log/" for GitHub Pages subpath
   plugins: [
     react(),
     {
