@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>log — Life Across The Edges</title>
+  <link href="https://log.daza.ar/" />
+  <link href="https://log.daza.ar/feed.xml" rel="self" />
+  <id>https://log.daza.ar/</id>
+  <updated>2026-06-03T22:26:40.029Z</updated>
+  <author>
+    <name>Juan Manuel Daza</name>
+    <uri>https://log.daza.ar</uri>
+  </author>
+  <entry>
+    <title>Six Months In: The Surprise of Shipping Code and Walking Away</title>
+    <link href="https://log.daza.ar/0" />
+    <id>https://log.daza.ar/0</id>
+    <updated>2026-06-03T12:00:00.000Z</updated>
+    <summary>5,100 downloads, 18 stars, 10 releases, 3 contributors, 3 forks.</summary>
+  </entry>
+</feed>
