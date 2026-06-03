@@ -34,6 +34,7 @@ export default defineConfig({
                 slug: file.replace(".md", ""),
                 title: data.title,
                 date: format(new Date(data.date), "MMMM dd, yyyy"),
+                dateISO: new Date(data.date).toISOString(),
                 description: data.description,
                 content: content,
               };
