@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { getAllPosts } from "../utils/markdown";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "../styles/BlogPost.module.css";
 
@@ -32,7 +33,7 @@ export function BlogPost() {
       <article className={styles.post}>
         <p className={styles.postMeta}>{post.date}</p>
         <div className={styles.content}>
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
         </div>
         <footer className={styles.backLink}>
           <Link to="/">&larr; Home</Link>
