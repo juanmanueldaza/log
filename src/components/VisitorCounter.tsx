@@ -10,16 +10,11 @@ export function VisitorCounter() {
   useEffect(() => {
     const fetchCount = async () => {
       try {
-        // Create or hit a counter for your site
-        // const result = await countapi.visits()
-        countapi.hit('ukfmwdrfisdj2q38743269432', 'admir').then((result) => {
-          console.log(result.value);
-        });
-        // setCount(result);
+        const result = await countapi.hit("ukfmwdrfisdj2q38743269432", "admir");
+        setCount(result.value);
       } catch (err) {
-        console.error("Error fetching visitor count:", err);
+        console.error("Visitor counter error:", err);
         setError(true);
-        // Fallback to a static number for the 90s feel
         setCount(1337);
       }
     };
@@ -27,10 +22,10 @@ export function VisitorCounter() {
     fetchCount();
   }, []);
 
-  if (error) {
+  if (error && count === 1337) {
     return (
       <span className={styles.counter}>
-        <Blink>1337</Blink>
+        <Blink>{count.toLocaleString()}</Blink>
       </span>
     );
   }
