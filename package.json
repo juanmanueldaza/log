@@ -6,7 +6,7 @@
   "homepage": "https://log.daza.ar",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && node scripts/generate-og-images.mjs && vite build && node scripts/generate-prerendered-pages.mjs && cp dist/index.html dist/404.html",
+    "build": "tsc -b && node scripts/generate-og-images.mjs && vite build && node scripts/generate-prerendered-pages.mjs && node scripts/generate-seo-files.mjs && cp dist/index.html dist/404.html",
     "lint": "eslint .",
     "preview": "vite preview"
   },

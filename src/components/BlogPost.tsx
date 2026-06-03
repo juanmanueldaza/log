@@ -28,7 +28,7 @@ export function BlogPost() {
   const canonicalUrl = `https://log.daza.ar/${post.slug}`;
 
   return (
-    <main>
+    <main id="main-content">
       <Helmet>
         <title>{post.title} — log</title>
         <meta name="description" content={post.description} />
@@ -37,19 +37,52 @@ export function BlogPost() {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="log" />
         <meta property="article:published_time" content={post.dateISO} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.description} />
         <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:creator" content="@juanmanueldaza" />
+        <meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#FDFBF7" media="(prefers-color-scheme: light)" />
         <link rel="canonical" href={canonicalUrl} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.description,
+          "datePublished": post.dateISO,
+          "author": {
+            "@type": "Person",
+            "name": "Juan Manuel Daza",
+            "url": "https://daza.ar"
+          },
+          "url": canonicalUrl,
+          "image": ogImage,
+          "publisher": {
+            "@type": "Organization",
+            "name": "log",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://log.daza.ar/favicon.svg"
+            }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonicalUrl
+          }
+        })}</script>
       </Helmet>
+      <a href="#main-content" className={styles.skipLink}>Skip to content</a>
       <header className={styles.header}>
         <h1>{post.title}</h1>
       </header>
       <article className={styles.post}>
-        <p className={styles.postMeta}>{post.date}</p>
+        <time className={styles.postMeta} dateTime={post.dateISO}>{post.date}</time>
         <div className={styles.content}>
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
         </div>

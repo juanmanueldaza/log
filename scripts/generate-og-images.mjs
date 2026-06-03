@@ -119,6 +119,11 @@ async function main() {
     await svgToPng(svg, outPath);
     console.log(`Generated og-${slug}.png`);
   }
+
+  // Generate apple-touch-icon from favicon.svg
+  const faviconSvg = fs.readFileSync(path.join(publicDir, "favicon.svg"));
+  await sharp(faviconSvg).resize(180, 180).png().toFile(path.join(publicDir, "apple-touch-icon.png"));
+  console.log("Generated apple-touch-icon.png");
 }
 
 main().catch((err) => {

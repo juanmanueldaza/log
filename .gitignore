@@ -5,5 +5,7 @@ dist
 vite.config.js
 .n3rv/
 
-# Generated OG images (rebuilt at build time)
+# Generated at build time (rebuilt by scripts)
 public/og-*.png
+public/apple-touch-icon.png
+public/robots.txt
