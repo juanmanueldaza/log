@@ -4,3 +4,6 @@ dist
 *.tsbuildinfo
 vite.config.js
 .n3rv/
+
+# Generated OG images (rebuilt at build time)
+public/og-*.png
