@@ -42,7 +42,7 @@ Six months and 10 releases later, the stats are modest, real, and independent:
 
 **The Four-Month Silence:** Zero commits between late January and late May. Just quiet utility while it did its job.
 
-**The May Revival & Community:** On May 22, the PDF resume generator landed via the \`--pdf\` flag. The next two days brought the project's first external contributions from people I've never met face-to-face: Viswanatha (from India) and nanookclaw. They shipped PRs to add a progress spinner and a user-requested \`--version\` flag.
+**The May Revival & Community:** On May 22, the PDF resume generator landed via the \`--pdf\` flag. The next two days brought the project's first external contributions from people I've never met face-to-face: [Viswanatha](https://github.com/blinkerbit) (from India) and [nanookclaw](https://github.com/nanookclaw). They shipped PRs to add a progress spinner and a user-requested \`--version\` flag.
 
 **Tooling Experiments:** \`uv\` dependency groups were added on May 22 and completely stripped out 24 hours later to keep things lean. Complicated tooling, short lifespan.
 
