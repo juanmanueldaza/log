@@ -44,6 +44,8 @@ Six months and 10 releases later, the stats are modest, real, and independent:
 
 **The May Revival & Community:** On May 22, the PDF resume generator landed via the \`--pdf\` flag. The next two days brought the project's first external contributions from people I've never met face-to-face: [Viswanatha](https://github.com/blinkerbit) (from India) and [nanookclaw](https://github.com/nanookclaw). They shipped PRs to add a progress spinner and a user-requested \`--version\` flag.
 
+I don't know these people. We've never spoken. They found the repo, fixed something, and moved on. That used to be the whole story. But I also don't know if they wrote those PRs themselves or if an agent did — because I use agents every day for my own work, and I'd be naive to assume I'm the only one. A growing share of code is AI-assisted now. Some percentage of open source contributions are agent-mediated, and nobody's tracking how much. I'm not sure it matters. What matters is that someone, somewhere, cared enough about a CLI tool for LinkedIn exports to spend attention on it — whether their own or their agent's.
+
 **Tooling Experiments:** \`uv\` dependency groups were added on May 22 and completely stripped out 24 hours later to keep things lean. Complicated tooling, short lifespan.
 
 **What stayed the same:** The default output directory (\`linkedin_export\`), the \`--lang es\` flag, and the core philosophy: convert a ZIP to Markdown. Everything else is just an optional flag.
