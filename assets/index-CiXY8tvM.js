@@ -42,7 +42,7 @@ Six months and [10 releases](https://github.com/juanmanueldaza/linkedin2md/relea
 
 **The Four-Month Silence:** Zero commits between late January and late May. I wasn't watching. I'd shipped it, moved on to other things, and honestly forgot to check back.
 
-**The May Revival & Community:** On May 22, I was experimenting with coding agents — first [OpenCode](https://opencode.ai), then [Hermes](https://hermes-agent.nousresearch.com) — and had one of them do some routine research across my projects. It came back with a number I didn't expect: 5,100 downloads. For a tool I'd built in a day and abandoned. I asked it to double-check. Same number. That afternoon I opened the repo again, read through the issues, and started working on it for the first time in four months.
+**The May Revival & Community:** On May 22, I was experimenting with coding agents — first OpenClaw, then [Hermes](https://hermes-agent.nousresearch.com) — and had one of them do some routine research across my projects. It came back with a number I didn't expect: 5,100 downloads. For a tool I'd built in a day and abandoned. I asked it to double-check. Same number. That afternoon I opened the repo again, read through the issues, and started working on it for the first time in four months.
 
 That same burst of attention produced the PDF resume generator via the \`--pdf\` flag. The next two days brought the project's first external contributions from people I've never met face-to-face: [Viswanatha](https://github.com/blinkerbit) (from India) and [nanookclaw](https://github.com/nanookclaw). They shipped PRs to add a [progress spinner](https://github.com/juanmanueldaza/linkedin2md/pull/8) and a user-requested [\`--version\` flag](https://github.com/juanmanueldaza/linkedin2md/issues/4).
 
