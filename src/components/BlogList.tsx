@@ -13,7 +13,7 @@ export function BlogList() {
           Life Across The Edges
         </p>
         <p className={styles.author}>
-          by Juan Manuel Daza
+          by <a href="https://daza.ar">Juan Manuel Daza</a>
         </p>
       </header>
 
@@ -42,7 +42,7 @@ export function BlogList() {
           <a href="mailto:juanmanueldaza@gmail.com">Email</a>
         </p>
         <p className={styles.copyright}>
-          &copy; {new Date().getFullYear()} Juan Manuel Daza
+          &copy; {new Date().getFullYear()} <a href="https://daza.ar">Juan Manuel Daza</a>
         </p>
       </footer>
     </main>
