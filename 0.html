@@ -11,8 +11,15 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/assets/index-BhkBhXdt.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CcnWsTBC.css">
+    <!-- GA4 Analytics (daza.ar ecosystem) -->
+    <script src="/_shared/analytics-config.umd.js"></script>
+    <script>
+      DazaAnalytics.initAutoTrackers();
+      DazaAnalytics.ConsentManager.init();
+      DazaAnalytics.bootstrap('log');
+    </script>
+    <script type="module" crossorigin src="/assets/index-DD8iJI_E.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Dfeu7GQD.css">
       <meta name="description" content="5,100 downloads, 18 stars, 10 releases, 3 contributors, 3 forks." />
     <meta name="color-scheme" content="dark light" />
     <meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)" />
@@ -39,5 +46,12 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Cookie consent banner -->
+    <div id="cookie-banner" role="dialog" aria-labelledby="cookie-title" hidden>
+      <p id="cookie-title">This site uses cookies for analytics.</p>
+      <p>You can accept or reject analytics cookies.</p>
+      <button id="cookie-accept">Accept</button>
+      <button id="cookie-reject">Reject</button>
+    </div>
   </body>
 </html>
