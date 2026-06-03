@@ -2,7 +2,6 @@ import { useParams, Link } from "react-router-dom";
 import { getAllPosts } from "../utils/markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { ThemeToggle } from "./ThemeToggle";
 import styles from "../styles/BlogPost.module.css";
 
 export function BlogPost() {
@@ -28,7 +27,6 @@ export function BlogPost() {
     <main>
       <header className={styles.header}>
         <h1>{post.title}</h1>
-        <ThemeToggle />
       </header>
       <article className={styles.post}>
         <p className={styles.postMeta}>{post.date}</p>

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { getAllPosts } from "../utils/markdown";
-import { ThemeToggle } from "./ThemeToggle";
 import styles from "../styles/BlogList.module.css";
 
 export function BlogList() {
@@ -9,12 +8,12 @@ export function BlogList() {
   return (
     <main role="main">
       <header className={styles.header}>
-        <div className={styles.headerTop}>
-          <h1 className={styles.siteTitle}>log</h1>
-          <ThemeToggle />
-        </div>
+        <h1 className={styles.siteTitle}>log</h1>
         <p className={styles.tagline}>
           Life Across The Edges
+        </p>
+        <p className={styles.author}>
+          by Juan Manuel Daza
         </p>
       </header>
 
@@ -31,10 +30,19 @@ export function BlogList() {
       </section>
 
       <footer className={styles.footer}>
-        <p>
-          <small>
-            &copy; {new Date().getFullYear()}
-          </small>
+        <p className={styles.socialLinks}>
+          <a href="https://linkedin.com/in/juanmanueldaza">LinkedIn</a>
+          {" · "}
+          <a href="https://github.com/juanmanueldaza">GitHub</a>
+          {" · "}
+          <a href="https://gitlab.com/juanmanueldaza">GitLab</a>
+          {" · "}
+          <a href="https://pypi.org/user/juanmanueldaza/">PyPI</a>
+          {" · "}
+          <a href="mailto:juanmanueldaza@gmail.com">Email</a>
+        </p>
+        <p className={styles.copyright}>
+          &copy; {new Date().getFullYear()} Juan Manuel Daza
         </p>
       </footer>
     </main>

@@ -4,14 +4,6 @@
     padding-top: 3rem;
 }
 
-.headerTop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
 .siteTitle {
     font-family: var(--serif);
     font-size: 3rem;
@@ -26,6 +18,13 @@
     font-size: 0.8rem;
     color: var(--text-dim);
     margin-top: 0.5rem;
+}
+
+.author {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-top: 0.35rem;
 }
 
 .article {
@@ -75,17 +74,25 @@
     border-top: 1px solid var(--rule);
 }
 
-.footer p {
+.socialLinks {
     font-family: var(--mono);
     font-size: 0.75rem;
     color: var(--text-dim);
     margin: 0.35rem 0;
 }
 
-.footer small {
+.socialLinks a {
+    color: var(--text-dim);
+    text-decoration: none;
+}
+
+.socialLinks a:hover {
+    color: var(--crimson);
+}
+
+.copyright {
     font-family: var(--mono);
     font-size: 0.75rem;
-    text-transform: none;
-    letter-spacing: 0;
     color: var(--text-dim);
+    margin: 0.35rem 0;
 }

@@ -1,20 +1,5 @@
-:root[data-theme="dark"] {
-    --bg: #0B0B0D;
-    --bg-alt: #141416;
-    --text-loud: rgba(255, 255, 255, 0.92);
-    --text-body: rgba(255, 255, 255, 0.78);
-    --text-soft: rgba(255, 255, 255, 0.48);
-    --text-dim: rgba(255, 255, 255, 0.22);
-    --ghost: rgba(255, 255, 255, 0.04);
-    --ghost-hover: rgba(255, 255, 255, 0.08);
-    --rule: rgba(255, 255, 255, 0.06);
-    --crimson: #CC0000;
-    --serif: "Playfair Display", Georgia, serif;
-    --sans: "Inter", system-ui, sans-serif;
-    --mono: "JetBrains Mono", "Fira Code", monospace;
-}
-
-:root[data-theme="light"] {
+/* Light theme: default for users who haven't expressed a preference */
+:root {
     --bg: #FDFBF7;
     --bg-alt: #F5F2ED;
     --text-loud: rgba(0, 0, 0, 0.90);
@@ -28,4 +13,19 @@
     --serif: "Playfair Display", Georgia, serif;
     --sans: "Inter", system-ui, sans-serif;
     --mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* Dark theme: applied when OS is in dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0B0B0D;
+        --bg-alt: #141416;
+        --text-loud: rgba(255, 255, 255, 0.92);
+        --text-body: rgba(255, 255, 255, 0.78);
+        --text-soft: rgba(255, 255, 255, 0.48);
+        --text-dim: rgba(255, 255, 255, 0.22);
+        --ghost: rgba(255, 255, 255, 0.04);
+        --ghost-hover: rgba(255, 255, 255, 0.08);
+        --rule: rgba(255, 255, 255, 0.06);
+    }
 }
