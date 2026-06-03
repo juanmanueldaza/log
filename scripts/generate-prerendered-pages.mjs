@@ -8,6 +8,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const contentDir = path.join(__dirname, "..", "src", "content");
 const distDir = path.join(__dirname, "..", "dist");
 
+// Read the built SPA index.html as a template
+const spaTemplate = fs.readFileSync(path.join(distDir, "index.html"), "utf8");
+
 function escapeHtml(str) {
   return str
     .replace(/&/g, "&amp;")
@@ -16,51 +19,44 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
-function generateHtml(title, description, ogImage, canonicalUrl, dateISO) {
+function injectMetaTags(html, title, description, ogImage, canonicalUrl, dateISO) {
   const ogType = dateISO ? "article" : "website";
   const articleTag = dateISO
-    ? `<meta property="article:published_time" content="${dateISO}" />`
+    ? `\n    <meta property="article:published_time" content="${dateISO}" />`
     : "";
 
-  return `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${escapeHtml(title)} — log</title>
-  <meta name="description" content="${escapeHtml(description)}" />
-  <link rel="canonical" href="${canonicalUrl}" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="${escapeHtml(title)}" />
-  <meta property="og:description" content="${escapeHtml(description)}" />
-  <meta property="og:type" content="${ogType}" />
-  <meta property="og:url" content="${canonicalUrl}" />
-  <meta property="og:image" content="${ogImage}" />
-  <meta property="og:site_name" content="log" />
-  ${articleTag}
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="${escapeHtml(title)}" />
-  <meta name="twitter:description" content="${escapeHtml(description)}" />
-  <meta name="twitter:image" content="${ogImage}" />
-  <!-- Styles preserved from SPA for brief flash -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
-    body { margin: 0; background: #0B0B0D; color: rgba(255,255,255,0.78); font-family: 'JetBrains Mono', monospace; }
-    .redirect-notice { max-width: 720px; margin: 40vh auto; text-align: center; color: rgba(255,255,255,0.48); font-size: 14px; }
-  </style>
-</head>
-<body>
-  <div class="redirect-notice">Loading&hellip;</div>
-  <script>
-    // Human visitors: redirect to the SPA
-    window.location.replace("${canonicalUrl}");
-  </script>
-</body>
-</html>`;
+  const metaTags = `<meta name="description" content="${escapeHtml(description)}" />
+    <link rel="canonical" href="${canonicalUrl}" />
+    <meta property="og:title" content="${escapeHtml(title)}" />
+    <meta property="og:description" content="${escapeHtml(description)}" />
+    <meta property="og:type" content="${ogType}" />
+    <meta property="og:url" content="${canonicalUrl}" />
+    <meta property="og:image" content="${ogImage}" />
+    <meta property="og:site_name" content="log" />${articleTag}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeHtml(title)}" />
+    <meta name="twitter:description" content="${escapeHtml(description)}" />
+    <meta name="twitter:image" content="${ogImage}" />`;
+
+  // Replace the title
+  let result = html.replace(
+    /<title>.*?<\/title>/,
+    `<title>${escapeHtml(title)} — log</title>`
+  );
+
+  // Remove ALL existing og/twitter/description/canonical meta tags and comments from template
+  result = result.replace(/<meta\s+property="og:[^"]*"[^>]*\/?\s*>\n?/g, "");
+  result = result.replace(/<meta\s+name="twitter:[^"]*"[^>]*\/?\s*>\n?/g, "");
+  result = result.replace(/<meta\s+name="description"[^>]*\/?\s*>\n?/g, "");
+  result = result.replace(/<link\s+rel="canonical"[^>]*\/?\s*>\n?/g, "");
+  result = result.replace(/<!--\s*(Open Graph|Twitter Card)\s*-->\n?/g, "");
+  // Clean up blank lines left by removals
+  result = result.replace(/\n\s*\n\s*\n/g, "\n\n");
+
+  // Inject new meta tags right before </head>
+  result = result.replace("</head>", `    ${metaTags}\n  </head>`);
+
+  return result;
 }
 
 async function main() {
@@ -77,11 +73,10 @@ async function main() {
     const ogImage = `https://log.daza.ar/og-${slug}.png`;
     const canonicalUrl = `https://log.daza.ar/${slug}`;
 
-    const html = generateHtml(title, description, ogImage, canonicalUrl, dateISO);
+    const html = injectMetaTags(spaTemplate, title, description, ogImage, canonicalUrl, dateISO);
 
-    // Write to /{slug}.html (crawler fallback - platforms like LinkedIn append .html)
-    // Do NOT write /{slug}/index.html — it would shadow the SPA route
-    // GitHub Pages serves the SPA via 404.html catch-all for /{slug} paths
+    // Write to /{slug}.html — GitHub Pages serves this for /{slug} requests
+    // This is a full SPA entry point with per-post meta tags injected
     fs.writeFileSync(path.join(distDir, `${slug}.html`), html);
     console.log(`Generated ${slug}.html`);
   }
