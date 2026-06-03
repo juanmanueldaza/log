@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { getAllPosts } from "../utils/markdown";
 import { ThemeToggle } from "./ThemeToggle";
-import { VisitorCounter } from "./VisitorCounter";
 import styles from "../styles/BlogList.module.css";
 
 export function BlogList() {
@@ -34,7 +33,7 @@ export function BlogList() {
       <footer className={styles.footer}>
         <p>
           <small>
-            &copy; {new Date().getFullYear()} &middot; Visitors: <VisitorCounter />
+            &copy; {new Date().getFullYear()}
           </small>
         </p>
       </footer>
