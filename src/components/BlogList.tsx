@@ -22,7 +22,7 @@ export function BlogList() {
           <article key={post.slug} className={styles.article}>
             <p className={styles.articleDate}>{post.date}</p>
             <h2 className={styles.articleTitle}>
-              <Link to={`/post/${post.slug}`}>{post.title}</Link>
+              <Link to={`/${post.slug}`}>{post.title}</Link>
             </h2>
             <p className={styles.articleDesc}>{post.description}</p>
           </article>
