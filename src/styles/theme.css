@@ -1,21 +1,31 @@
-:root[data-theme="light"] {
-    --bg-primary: #f0f0f0;
-    --bg-secondary: #fff;
-    --text-primary: #000;
-    --text-secondary: #666;
-    --border-color: #000;
-    --link-color: #00f;
-    --link-visited: #800080;
-    --link-active: #f00;
+:root[data-theme="dark"] {
+    --bg: #0B0B0D;
+    --bg-alt: #141416;
+    --text-loud: rgba(255, 255, 255, 0.92);
+    --text-body: rgba(255, 255, 255, 0.78);
+    --text-soft: rgba(255, 255, 255, 0.48);
+    --text-dim: rgba(255, 255, 255, 0.22);
+    --ghost: rgba(255, 255, 255, 0.04);
+    --ghost-hover: rgba(255, 255, 255, 0.08);
+    --rule: rgba(255, 255, 255, 0.06);
+    --crimson: #CC0000;
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "Inter", system-ui, sans-serif;
+    --mono: "JetBrains Mono", "Fira Code", monospace;
 }
 
-:root[data-theme="dark"] {
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #2d2d2d;
-    --text-primary: #fff;
-    --text-secondary: #ccc;
-    --border-color: #666;
-    --link-color: #809fff;
-    --link-visited: #cc99ff;
-    --link-active: #ff6666;
+:root[data-theme="light"] {
+    --bg: #FDFBF7;
+    --bg-alt: #F5F2ED;
+    --text-loud: rgba(0, 0, 0, 0.90);
+    --text-body: rgba(0, 0, 0, 0.72);
+    --text-soft: rgba(0, 0, 0, 0.44);
+    --text-dim: rgba(0, 0, 0, 0.22);
+    --ghost: rgba(0, 0, 0, 0.03);
+    --ghost-hover: rgba(0, 0, 0, 0.06);
+    --rule: rgba(0, 0, 0, 0.07);
+    --crimson: #CC0000;
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "Inter", system-ui, sans-serif;
+    --mono: "JetBrains Mono", "Fira Code", monospace;
 }

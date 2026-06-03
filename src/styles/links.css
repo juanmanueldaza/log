@@ -1,15 +1,20 @@
 a {
-    color: #00f;
+    color: var(--crimson);
     text-decoration: none;
     cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 a:visited {
-    color: #800080;
+    color: var(--crimson);
+    opacity: 0.75;
 }
-a:hover {
-    text-decoration: underline;
-}
+
 a:active {
-    color: #f00;
+    opacity: 0.6;
 }

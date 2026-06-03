@@ -11,42 +11,30 @@ export function BlogList() {
     <main role="main">
       <header className={styles.header}>
         <div className={styles.headerTop}>
-          <h1>Life Across The Edges</h1>
+          <h1 className={styles.siteTitle}>log</h1>
           <ThemeToggle />
         </div>
-        <hr />
+        <p className={styles.tagline}>
+          Life Across The Edges
+        </p>
       </header>
 
       <section>
         {posts.map((post) => (
           <article key={post.slug} className={styles.article}>
-            <header>
-              <h2>
-                <Link to={`/post/${post.slug}`}>&gt;&gt; {post.title}</Link>
-              </h2>
-              <time dateTime={post.date} className="post-meta">
-                Posted on: {post.date}
-              </time>
-            </header>
-            <p>{post.description}</p>
-            <footer>
-              <Link to={`/post/${post.slug}`}>[Read More]</Link>
-            </footer>
+            <p className={styles.articleDate}>{post.date}</p>
+            <h2 className={styles.articleTitle}>
+              <Link to={`/post/${post.slug}`}>{post.title}</Link>
+            </h2>
+            <p className={styles.articleDesc}>{post.description}</p>
           </article>
         ))}
       </section>
 
-      <footer>
-        <hr />
+      <footer className={styles.footer}>
         <p>
           <small>
-            © {new Date().getFullYear()} | Made with HTML5 | Best viewed with
-            Netscape Navigator
-          </small>
-        </p>
-        <p>
-          <small>
-            Visitors: <VisitorCounter />
+            &copy; {new Date().getFullYear()} &middot; Visitors: <VisitorCounter />
           </small>
         </p>
       </footer>

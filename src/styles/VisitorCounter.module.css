@@ -5,11 +5,11 @@
 
 .loading {
     font-family: monospace;
-    color: var(--text-secondary);
+    color: var(--text-soft);
 }
 
 .error {
     font-family: monospace;
-    color: var(--text-secondary);
+    color: var(--text-soft);
     font-style: italic;
 }
