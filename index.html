@@ -34,9 +34,23 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <!-- GA4 Analytics (daza.ar ecosystem) -->
+    <script src="/_shared/analytics-config.umd.js"></script>
+    <script>
+      DazaAnalytics.initAutoTrackers();
+      DazaAnalytics.ConsentManager.init();
+      DazaAnalytics.bootstrap('log');
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="./src/main.tsx"></script>
+    <!-- Cookie consent banner -->
+    <div id="cookie-banner" role="dialog" aria-labelledby="cookie-title" hidden>
+      <p id="cookie-title">This site uses cookies for analytics.</p>
+      <p>You can accept or reject analytics cookies.</p>
+      <button id="cookie-accept">Accept</button>
+      <button id="cookie-reject">Reject</button>
+    </div>
   </body>
 </html>
