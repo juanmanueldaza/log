@@ -9,5 +9,3 @@ vite.config.js
 public/og-*.png
 public/apple-touch-icon.png
 public/robots.txt
-# Shared analytics config (copied from daza.ar-env)
-public/_shared/
