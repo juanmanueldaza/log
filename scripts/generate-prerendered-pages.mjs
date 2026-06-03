@@ -52,13 +52,13 @@ function generateHtml(title, description, ogImage, canonicalUrl, dateISO) {
     body { margin: 0; background: #0B0B0D; color: rgba(255,255,255,0.78); font-family: 'JetBrains Mono', monospace; }
     .redirect-notice { max-width: 720px; margin: 40vh auto; text-align: center; color: rgba(255,255,255,0.48); font-size: 14px; }
   </style>
-  <script>
-    // Redirect human visitors to the SPA
-    window.location.replace("${canonicalUrl}");
-  </script>
 </head>
 <body>
   <div class="redirect-notice">Loading&hellip;</div>
+  <script>
+    // Human visitors: redirect to the SPA
+    window.location.replace("${canonicalUrl}");
+  </script>
 </body>
 </html>`;
 }
@@ -79,17 +79,11 @@ async function main() {
 
     const html = generateHtml(title, description, ogImage, canonicalUrl, dateISO);
 
-    // Write to /{slug}.html
+    // Write to /{slug}.html (crawler fallback - platforms like LinkedIn append .html)
+    // Do NOT write /{slug}/index.html — it would shadow the SPA route
+    // GitHub Pages serves the SPA via 404.html catch-all for /{slug} paths
     fs.writeFileSync(path.join(distDir, `${slug}.html`), html);
     console.log(`Generated ${slug}.html`);
-
-    // Write to /{slug}/index.html
-    const slugDir = path.join(distDir, slug);
-    if (!fs.existsSync(slugDir)) {
-      fs.mkdirSync(slugDir, { recursive: true });
-    }
-    fs.writeFileSync(path.join(slugDir, "index.html"), html);
-    console.log(`Generated ${slug}/index.html`);
   }
 }
 
