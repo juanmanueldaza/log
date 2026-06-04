@@ -76,7 +76,7 @@ export function BlogList() {
           {" · "}
           <a href="https://pypi.org/user/juanmanueldaza/" rel="me">PyPI</a>
           {" · "}
-          <a href="mailto:juanmanueldaza@gmail.com" rel="me">Email</a>
+          <a href="mailto:juan@daza.ar" rel="me">Email</a>
         </p>
         <p className={styles.copyright}>
           &copy; {new Date().getFullYear()} <a href="https://daza.ar">Juan Manuel Daza</a>
