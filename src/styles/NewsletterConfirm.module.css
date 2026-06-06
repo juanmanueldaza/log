@@ -1,0 +1,58 @@
+.page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.card {
+    text-align: center;
+}
+
+.heading {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-loud);
+    margin: 0 0 1rem;
+}
+
+.text {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-body);
+    margin: 0 0 1.5rem;
+}
+
+.link {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--crimson);
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.button {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+    background: #0B0B0D;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
+    background: var(--crimson);
+}

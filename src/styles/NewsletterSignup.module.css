@@ -1,0 +1,117 @@
+.section {
+    margin: 4rem 0 0;
+    padding: 2rem 0 0;
+    border-top: 1px solid var(--rule);
+}
+
+.heading {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-loud);
+    margin: 0 0 0.5rem;
+}
+
+.blurb {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-soft);
+    margin: 0 0 0.25rem;
+}
+
+.rssBlurb {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin: 0 0 1.5rem;
+}
+
+.rssBlurb a {
+    color: var(--crimson);
+    text-decoration: none;
+}
+
+.rssBlurb a:hover {
+    text-decoration: underline;
+}
+
+.form {
+    margin: 0;
+}
+
+.fieldRow {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.input {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--text-body);
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    padding: 0.6rem 0.8rem;
+    border-radius: 2px;
+    outline: none;
+    flex: 1;
+    min-width: 180px;
+}
+
+.input:focus {
+    border-color: var(--crimson);
+}
+
+.button {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+    background: #0B0B0D;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
+    background: var(--crimson);
+}
+
+.consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+    cursor: pointer;
+}
+
+.consent input[type="checkbox"] {
+    margin-top: 0.2rem;
+    accent-color: var(--crimson);
+}
+
+.error {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--crimson);
+    margin-top: 0.5rem;
+}
+
+.success {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--text-body);
+    line-height: 1.6;
+}

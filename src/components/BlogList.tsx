@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { getAllPosts } from "../utils/markdown";
 import styles from "../styles/BlogList.module.css";
+import { NewsletterSignup } from "./NewsletterSignup";
 
 export function BlogList() {
   const posts = getAllPosts();
@@ -66,6 +67,7 @@ export function BlogList() {
         ))}
       </section>
 
+\n      <NewsletterSignup />
       <footer className={styles.footer}>
         <p className={styles.socialLinks}>
           <a href="https://linkedin.com/in/juanmanueldaza" rel="me">LinkedIn</a>
