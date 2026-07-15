@@ -4,7 +4,7 @@
   <link href="https://log.daza.ar/" />
   <link href="https://log.daza.ar/feed.xml" rel="self" />
   <id>https://log.daza.ar/</id>
-  <updated>2026-06-07T23:00:04.179Z</updated>
+  <updated>2026-07-15T00:30:41.653Z</updated>
   <author>
     <name>Juan Manuel Daza</name>
     <uri>https://log.daza.ar</uri>
@@ -15,5 +15,12 @@
     <id>https://log.daza.ar/0</id>
     <updated>2026-06-03T12:00:00.000Z</updated>
     <summary>5,100 downloads, 18 stars, 10 releases, 3 contributors, 3 forks.</summary>
+  </entry>
+  <entry>
+    <title>The Highest Level</title>
+    <link href="https://log.daza.ar/1" />
+    <id>https://log.daza.ar/1</id>
+    <updated>2026-07-14T12:00:00.000Z</updated>
+    <summary>AI is the new compiler. The bottleneck is no longer syntax, but intent. And the leverage cuts both ways.</summary>
   </entry>
 </feed>
