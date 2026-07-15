@@ -26,7 +26,8 @@ export function BlogList() {
         <meta name="twitter:description" content="Juan Manuel Daza's blog. Shipping code, walking away, and watching what grows." />
         <meta name="twitter:image" content="https://log.daza.ar/og-default.png" />
         <meta name="twitter:creator" content="@juanmanueldaza" />
-        <meta name="theme-color" content="#0d1b2a" />
+        <meta name="theme-color" content="#0d1b2a" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#f5f0e1" media="(prefers-color-scheme: light)" />
         <link rel="canonical" href="https://log.daza.ar" />
         <link rel="alternate" type="application/atom+xml" title="log — Life Across The Edges" href="/feed.xml" />
         <script type="application/ld+json">{JSON.stringify({

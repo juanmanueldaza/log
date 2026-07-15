@@ -1,5 +1,7 @@
-/* Monkey Island Night Palette — matches daza.ar */
+/* Monkey Island Palette — dark (Night) + light (Day), matches daza.ar */
+
 :root {
+    /* Monkey Island core palette */
     --deep-sea: #0d1b2a;
     --midnight-blue: #1b263b;
     --tropical-teal: #415a77;
@@ -8,7 +10,7 @@
     --pirate-gold: #ffd700;
     --scumm-green: #3cb371;
 
-    /* Semantic tokens for log */
+    /* Dark theme (Night) — default */
     --bg: var(--deep-sea);
     --bg-alt: var(--midnight-blue);
     --text-loud: var(--parchment);
@@ -23,4 +25,20 @@
     --serif: "Cormorant Garamond", Georgia, serif;
     --sans: "Inter", system-ui, sans-serif;
     --mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* Light theme (Day) — when OS/browser prefers light */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: var(--parchment);
+        --bg-alt: var(--moonlit-sand);
+        --text-loud: var(--deep-sea);
+        --text-body: var(--midnight-blue);
+        --text-soft: var(--tropical-teal);
+        --text-dim: rgba(13, 27, 42, 0.35);
+        --ghost: rgba(13, 27, 42, 0.04);
+        --ghost-hover: rgba(13, 27, 42, 0.08);
+        --rule: rgba(65, 90, 119, 0.25);
+        --crimson: #c79100; /* darker gold for contrast on light bg */
+    }
 }
