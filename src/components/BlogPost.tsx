@@ -47,8 +47,7 @@ export function BlogPost() {
         <meta name="twitter:description" content={post.description} />
         <meta name="twitter:image" content={ogImage} />
         <meta name="twitter:creator" content="@juanmanueldaza" />
-        <meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)" />
-        <meta name="theme-color" content="#FDFBF7" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0d1b2a" />
         <link rel="canonical" href={canonicalUrl} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -77,7 +76,6 @@ export function BlogPost() {
           }
         })}</script>
       </Helmet>
-      <a href="#main-content" className={styles.skipLink}>Skip to content</a>
       <header className={styles.header}>
         <h1>{post.title}</h1>
       </header>

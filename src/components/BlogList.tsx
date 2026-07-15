@@ -26,8 +26,7 @@ export function BlogList() {
         <meta name="twitter:description" content="Juan Manuel Daza's blog. Shipping code, walking away, and watching what grows." />
         <meta name="twitter:image" content="https://log.daza.ar/og-default.png" />
         <meta name="twitter:creator" content="@juanmanueldaza" />
-        <meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)" />
-        <meta name="theme-color" content="#FDFBF7" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0d1b2a" />
         <link rel="canonical" href="https://log.daza.ar" />
         <link rel="alternate" type="application/atom+xml" title="log — Life Across The Edges" href="/feed.xml" />
         <script type="application/ld+json">{JSON.stringify({
@@ -44,7 +43,6 @@ export function BlogList() {
           }
         })}</script>
       </Helmet>
-      <a href="#main-content" className={styles.skipLink}>Skip to content</a>
       <header className={styles.header}>
         <h1 className={styles.siteTitle}>log</h1>
         <p className={styles.tagline}>
@@ -67,7 +65,7 @@ export function BlogList() {
         ))}
       </section>
 
-\n      <NewsletterSignup />
+      <NewsletterSignup />
       <footer className={styles.footer}>
         <p className={styles.socialLinks}>
           <a href="https://linkedin.com/in/juanmanueldaza" rel="me">LinkedIn</a>
